@@ -241,7 +241,7 @@ async function createBranch (ctx, config, branchName, sha, log) {
     })
     log(`Branch created: ${branchName}`)
     if (utils.isRunningInGitHubActions()) {
-      process.stdout.write(`::set-output name=branchName::${branchName}\n`)
+      // process.stdout.write(`::set-output name=branchName::${branchName}\n`)
     }
     const commentMessage = interpolate(Config.getCommentMessage(config), { ...ctx.payload, branchName: branchName })
     await addComment(ctx, config, commentMessage)
